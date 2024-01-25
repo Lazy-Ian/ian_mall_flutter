@@ -9,7 +9,9 @@ import 'package:ian_mall_flutter/page/tabbar/view_model/tabbar_view_model.dart';
 /// Email: yixin0212@qq.com
 /// Function :
 class TabbarPage extends StatefulWidget {
-  const TabbarPage({super.key});
+  final int indexPage;
+
+  const TabbarPage({super.key, required this.indexPage});
 
   @override
   State<TabbarPage> createState() => _TabBarPageState();
@@ -135,30 +137,6 @@ class _TabBarPageState extends State<TabbarPage> {
       );
     }
 
-    // Container initFloatingActionButton() {
-    //   return Container(
-    //     margin: EdgeInsets.only(top: 56.h),
-    //     // width: 46.w,
-    //     // height: 46.h,
-    //     clipBehavior: Clip.hardEdge,
-    //     decoration: BoxDecoration(
-    //         border: Border.all(color: ColorConfig.mainColor, width: 3.w),
-    //         borderRadius: BorderRadius.circular(46.h)),
-    //     child: FloatingActionButton(
-    //       backgroundColor: Colors.white,
-    //       elevation: 10,
-    //       onPressed: () {
-    //         tabberViewModel.changeSelectIndex(0);
-    //       },
-    //       child: Image(
-    //         fit: BoxFit.cover,
-    //         // width: 46.w,
-    //         // height: 46.w,
-    //         image: const AssetImage("assets/images/ic_tab_home_hover.png"),
-    //       ),
-    //     ),
-    //   );
-    // }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -168,18 +146,7 @@ class _TabBarPageState extends State<TabbarPage> {
       ),
       // floatingActionButton: initFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: buildBottomTab(),
+      bottomNavigationBar: buildBottomTab(),
     );
-
-
-
-
-
-
-
-
-
-
-
   }
 }

@@ -7,7 +7,7 @@ import 'package:ian_mall_flutter/model/response_model.dart';
 
 class HandleState {
   /// successCode 即后端返回数据成功的code,这个参数是为了后端接口返回code不一致.
-  static NetState handle(ResponseModel responseModel, {int? successCode = 100200}) {
+  static NetState handle(ResponseModel responseModel, {int? successCode = 200}) {
     if (responseModel.code == successCode) {
       return NetState.dataSuccessState;
     } else if (responseModel.code == 404) {

@@ -1,0 +1,234 @@
+{
+  "code": 200,
+  "status": "success",
+  "statusDesc": "请求成功",
+  "uuid": "d2a6e906-5ce8-bb07-1a28-5c8c324e3ef3",
+  "data": {
+    "activities": [
+      {
+        "activityContent": "胶囊图位置1",
+        "activityImage": "https:\/\/image3.24th.com\/recommend\/image\/20231229\/o6\/ll\/o6llfqe3rnkky  jzgugjz.gif",
+        "activityTitle": "全球礼卡",
+        "activityUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=776",
+        "flag": "1",
+        "jumpType": "h5",
+        "jumpValue": ""
+      },
+      {
+        "activityContent": "胶囊图位置2",
+        "activityImage": "https:\/\/image4.24th.com\/recommend\/image\/20231229\/lb\/nd\/lbnd68qyqrrei  yzreh47.jpg",
+        "activityTitle": "全球礼卡",
+        "activityUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=776",
+        "flag": "1",
+        "jumpType": "h5",
+        "jumpValue": ""
+      },
+      {
+        "activityContent": "胶囊图位置4",
+        "activityImage": "https:\/\/image5.24th.com\/recommend\/image\/20231225\/5a\/7a\/5a7ah1wkzdqka  qiejrvj.jpg",
+        "activityTitle": "年度好物大赏",
+        "activityUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=799",
+        "flag": "1",
+        "jumpType": "h5",
+        "jumpValue": ""
+      },
+      {
+        "activityContent": "胶囊图位置3",
+        "activityImage": "https:\/\/image6.24th.com\/recommend\/image\/20231225\/rh\/vt\/rhvtx7i27v0ha  0icgazs.jpg",
+        "activityTitle": "年度好物大赏",
+        "activityUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=799",
+        "flag": "1",
+        "jumpType": "h5",
+        "jumpValue": ""
+      }
+    ],
+    "banners": [
+      {
+        "bannerBgColor": "#f5f5f5",
+        "bannerContent": "",
+        "bannerId": "777",
+        "bannerImg": "https:\/\/image7.24th.com\/activity\/banner\/20231219\/mu\/bx\/mubxqgikhiuw732cm  ebk.jpg?x-oss-process=image\/resize,h_480,w_600,m_fixed,color_FFFFFF\/sharpen,100\/contrast,3",
+        "bannerTitle": "金龙送福 年礼贺岁",
+        "bannerUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=777",
+        "jumpType": "h5",
+        "jumpPath": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=777"
+      },
+      {
+        "bannerBgColor": "#f5f5f5",
+        "bannerContent": "",
+        "bannerId": "806",
+        "bannerImg": "https:\/\/image8.24th.com\/activity\/banner\/20240112\/tz\/97\/tz97491fezaa8dfrt  984.jpg?x-oss-process=image\/resize,h_480,w_600,m_fixed,color_FFFFFF\/sharpen,100\/contrast,3",
+        "bannerTitle": "浪漫情人节",
+        "bannerUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=806",
+        "jumpType": "h5",
+        "jumpPath": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=806"
+      },
+      {
+        "bannerBgColor": "#f5f5f5",
+        "bannerContent": "",
+        "bannerId": "748",
+        "bannerImg": "https:\/\/image9.24th.com\/activity\/banner\/20230821\/28\/ls\/28ls2b9kbs7a7j4dc  0ob.jpg?x-oss-process=image\/resize,h_480,w_600,m_fixed,color_FFFFFF\/sharpen,100\/contrast,3",
+        "bannerTitle": "品质生活 焕新囤货进行时",
+        "bannerUrl": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=748",
+        "jumpType": "h5",
+        "jumpPath": "https:\/\/h5.24th.com\/pages\/activity\/activity?activityId=748"
+      }
+    ],
+    "categories": [
+      {
+        "category_img": "https:\/\/image1.24th.com\/menu\/logo\/20231206\/ri\/nd\/rindlx78us8wtii9v2un  .png",
+        "category_name": "春节专区",
+        "menu_id": "342",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image2.24th.com\/menu\/logo\/20221212\/7i\/sq\/7isq2a6ilsp6u3sxemld  .png",
+        "category_name": "食品生鲜",
+        "menu_id": "80",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image3.24th.com\/menu\/logo\/20221213\/o8\/ar\/o8arh1rupvxtlc065edl  .png",
+        "category_name": "惠选超市",
+        "menu_id": "313",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image4.24th.com\/menu\/logo\/20221212\/wi\/3p\/wi3pl1erbk3yn2o9dpoc  .png",
+        "category_name": "全球美妆",
+        "menu_id": "18",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image5.24th.com\/menu\/logo\/20221212\/ta\/81\/ta81an1bk7swcmq4oig8  .png",
+        "category_name": "数码家电",
+        "menu_id": "24",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image6.24th.com\/menu\/logo\/20221212\/e3\/uh\/e3uhtqjip7zlmg1jdtsx  .png",
+        "category_name": "家居生活",
+        "menu_id": "21",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image7.24th.com\/menu\/logo\/20221212\/40\/vv\/40vv6ss572w2wfoacgp6  .png",
+        "category_name": "母婴儿童",
+        "menu_id": "17",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image8.24th.com\/menu\/logo\/20221213\/kv\/lb\/kvlbrmny12ln5stx9ayg  .png",
+        "category_name": "厨房用品",
+        "menu_id": "281",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image9.24th.com\/menu\/logo\/20221212\/qf\/gx\/qfgx7zzcuemdw6bstvdz  .png",
+        "category_name": "轻奢尚品",
+        "menu_id": "25",
+        "rec_type": "-1",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image0.24th.com\/menu\/logo\/20210901\/18\/3b\/183b5424dbc0503decca  .jpg",
+        "category_name": "保值升值",
+        "menu_id": "268",
+        "rec_type": "9",
+        "url": ""
+      },
+      {
+        "category_img": "https:\/\/image1.24th.com\/menu\/logo\/20210901\/ea\/b9\/eab97c05f057e506cd05  .jpg",
+        "category_name": "智能商店",
+        "menu_id": "76",
+        "rec_type": "6",
+        "url": "https:\/\/m.24th.com\/customer\/media\/cooperation"
+      },
+      {
+        "category_img": "https:\/\/image2.24th.com\/menu\/logo\/20221213\/x0\/67\/x067uuf3xy5z97qbv8r9  .png",
+        "category_name": "绑卡",
+        "menu_id": "312",
+        "rec_type": "10",
+        "url": ""
+      }
+    ],
+    "color": "#f5f5f5",
+    "color_system": "white",
+    "emergency_notice": "",
+    "emergencyNotice": "",
+    "giftCardInfo": {
+      "giftCardActUrl": "",
+      "giftCardId": "",
+      "giftCardImageList": [
+        {
+          "product_img": "https:\/\/image1.24th.com\/app\/tab\/20220610\/6q\/5y\/6q5yor5ijmpufr4cw  1tm.png"
+        }
+      ],
+      "giftCardName": "",
+      "giftCardState": ""
+    },
+    "headlines": [
+    ],
+    "headlinesMore": "https:\/\/h5.24th.com\/pages\/headline\/headline",
+    "headlinesAppMore": "winekar:\/\/jumpH5\/?url=https:\/\/h5.24th.com\/pages\/headline\/headline&title=全  时头条",
+    "tabbar": [
+      {
+        "toolbar_title": "首页",
+        "toolbar_icon_temp": "https:\/\/image1.24th.com\/app\/tab\/20220610\/6q\/5y\/6q5yor5ijmpufr4cw  1tm.png",
+        "toolbar_icon": "https:\/\/image0.24th.com\/app\/tab\/20211009\/xv\/7s\/xv7sdtrw28ua9dc1l1zb.p  ng",
+        "toolbar_icon_active": "https:\/\/image2.24th.com\/app\/tab\/20211009\/i0\/43\/i043d56baf0va0q  znt4v.png"
+      },
+      {
+        "toolbar_title": "分类",
+        "toolbar_icon_temp": "https:\/\/image4.24th.com\/app\/tab\/20211009\/hn\/rn\/hnrnfxk8uin2urxac  55f.png",
+        "toolbar_icon": "https:\/\/image3.24th.com\/app\/tab\/20211009\/wl\/0k\/wl0kec425jlhk19kgp5z.p  ng",
+        "toolbar_icon_active": "https:\/\/image5.24th.com\/app\/tab\/20211009\/g7\/9j\/g79jyhleetokr7z  nf6ke.png"
+      },
+      {
+        "toolbar_title": "发现",
+        "toolbar_icon_temp": "https:\/\/image7.24th.com\/app\/tab\/20211009\/q4\/iw\/q4iwhallelbc81291  oea.png",
+        "toolbar_icon": "https:\/\/image6.24th.com\/app\/tab\/20211009\/au\/vk\/auvkp3x92i9q7v88yc9y.p  ng",
+        "toolbar_icon_active": "https:\/\/image8.24th.com\/app\/tab\/20211009\/4g\/2i\/4g2i8x80dx7swb2  ucoh8.png"
+      },
+      {
+        "toolbar_title": "购物车",
+        "toolbar_icon_temp": "https:\/\/image0.24th.com\/app\/tab\/20211009\/4x\/do\/4xdo2q9939xxxp3zl  tiz.png",
+        "toolbar_icon": "https:\/\/image9.24th.com\/app\/tab\/20211009\/px\/vd\/pxvd07ubx64t2px1eies.p  ng",
+        "toolbar_icon_active": "https:\/\/image1.24th.com\/app\/tab\/20211009\/68\/5a\/685ainc2hr7g1fu  g10du.png"
+      },
+      {
+        "toolbar_title": "我的",
+        "toolbar_icon_temp": "https:\/\/image3.24th.com\/app\/tab\/20211009\/4e\/8i\/4e8izy2ce59qwqmq0  s7y.png",
+        "toolbar_icon": "https:\/\/image2.24th.com\/app\/tab\/20211009\/fm\/j7\/fmj7w32r737o9yl432dz.p  ng",
+        "toolbar_icon_active": "https:\/\/image4.24th.com\/app\/tab\/20211009\/gk\/b4\/gkb4zrnok15euf8  na1ft.png"
+      }
+    ],
+    "safeguards": [
+      {
+        "title": "全球好物",
+        "icon": "https:\/\/image5.24th.com\/menu\/logo\/20220817\/jw\/ml\/jwmlnn5cfutgq0k6obkz.png"
+      },
+      {
+        "title": "正品直采",
+        "icon": "https:\/\/image6.24th.com\/menu\/logo\/20220817\/o9\/9a\/o99aekio54e55wzwaw67.png"
+      },
+      {
+        "title": "包邮包税",
+        "icon": "https:\/\/image7.24th.com\/menu\/logo\/20221107\/yj\/ha\/yjhaa95tzyz1c1la5xbx.png"
+      },
+      {
+        "title": "售后无忧",
+        "icon": "https:\/\/image8.24th.com\/menu\/logo\/20220817\/3o\/pi\/3opieltqj3b6n1sc1afl.png"
+      }
+    ]
+  },
+  "request": "home\/getRecBanner"
+}

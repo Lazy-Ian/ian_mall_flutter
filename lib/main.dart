@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ian_mall_flutter/generated/l10n.dart';
 import 'package:ian_mall_flutter/page/splash/view/splash_page.dart';
 import 'package:ian_mall_flutter/page/tabbar/view/tabber_page.dart';
 import 'package:ian_mall_flutter/routers/routers.dart';
@@ -35,8 +36,8 @@ class _MyAppState extends State<MyApp> {
     String phoneNumber = SharedPreferencesUtil.sharedPreferences.getString("phoneNumber") ?? '';
 
     return MaterialApp(
-      // home: TabbarPage(),
-      home: SplashPage(),
+      home: const TabbarPage(indexPage: 0),
+      // home: SplashPage(),
       builder: (context, widget) {
         return MediaQuery(
           ///设置文字大小不随系统设置改变
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
       navigatorKey: navigatorKey,
       locale: const Locale('zh', 'CH'),
       localizationsDelegates: const [
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate

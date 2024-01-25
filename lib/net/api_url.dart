@@ -7,5 +7,6 @@ class ApiUrl {
   static const v1 = "v1";
 
   ///获取serviceIp
-  static const serverIpUrl = "$releaseHost$v1/system/getAdList";
+  static const getAdListUrl = "$releaseHost$v1/system/getAdList";
+  static const getRecBannerUrl = "$releaseHost$v1/home/getRecBanner";
 }

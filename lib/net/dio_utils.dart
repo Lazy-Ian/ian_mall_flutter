@@ -9,7 +9,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:ian_mall_flutter/model/response_model.dart';
 import 'package:ian_mall_flutter/net/api_url.dart';
-import 'package:ian_mall_flutter/net/log_utils.dart';
 import 'package:ian_mall_flutter/utils/app_util.dart';
 import 'package:ian_mall_flutter/utils/md5_encryption.dart';
 import 'package:ian_mall_flutter/utils/package_util.dart';
@@ -41,7 +40,6 @@ class DioUtils {
   /// 初始化配置
   static final DioUtils _instance = DioUtils._internal();
 
-
   /// 自定义Header
   final httpHeaders = {
     'version': PackageUtil.getVersionName(),
@@ -51,7 +49,8 @@ class DioUtils {
     'Content-Type': 'application/x-www-form-urlencoded',
     'api-version': ApiUrl.v1,
     'platform': Platform.isAndroid ? 'Android' : 'iOS',
-    'User-Agent': "Dalvik/2.1.0 (Linux; U; Android 12; P20S(M5A2) Build/P20S_ROW) WineKar/1.0.0",
+    'User-Agent':
+        "Dalvik/2.1.0 (Linux; U; Android 12; P20S(M5A2) Build/P20S_ROW) WineKar/1.0.0",
   };
 
   /// 通用全局单例，第一次使用时初始化
@@ -86,7 +85,7 @@ class DioUtils {
   /// 获取基础配置项
   BaseOptions _options() {
     // 获取当前环境对应的配置项
-    String baseUrl = ApiUrl.serverIpUrl;
+    String baseUrl = ApiUrl.releaseHost;
     return BaseOptions(
       baseUrl: baseUrl,
       connectTimeout: HttpConfig.connectTimeout,
@@ -245,7 +244,7 @@ class DioUtils {
 
   /// 向header添加动态公参
   void appendCommonHeaders(Map<String, dynamic> headers) {
-    headers['userToken'] =  AppUtil.getToken(); //登录的token
+    headers['userToken'] = AppUtil.getToken(); //登录的token
     headers['appKey'] = AppUtil.getAppKey();
   }
 
@@ -255,7 +254,7 @@ class DioUtils {
     String accessRandom = AppUtil.getRandom(8); //随机数
     String timestamp = TimeUtil.currentTimeMillis().toString(); //时间戳
     var accessSign = ""; //签名
- //version=4.0.4&
+    //version=4.0.4&
     // userToken=&
     // platform=Android&
     // timestamp=1705540699&
@@ -268,7 +267,7 @@ class DioUtils {
     params?['timestamp'] = timestamp; //时间戳
     params?['appKey'] = AppUtil.getAppKey();
     params?['accessRandom'] = accessRandom; //随机数
-     accessSign = getSignInfo(params);
+    accessSign = getSignInfo(params);
     if (_dio != null) {
       _dio?.options.headers['accessSign'] = accessSign; //签名
       _dio?.options.headers['accessRandom'] = accessRandom; //随机数
@@ -281,13 +280,18 @@ class DioUtils {
     //1.所有请求参数按照字母先后顺序排列
     final sortedKeysAsc = SplayTreeMap.from(params);
     sortedKeysAsc["appKeySecret"] = AppUtil.INIT_KEY + AppUtil.INIT_KEY;
-    logE(sortedKeysAsc);
 
     //2.把所有参数名和参数值进行拼装
-   String sortMap = sortedKeysAsc.toString().replaceAll("{", "").replaceAll("}", "")
-        .replaceAll("=", "").replaceAll(":", "").replaceAll(",", "")
-        .replaceAll(" ", "").replaceAll("+", "").replaceAll("/", "");
-    logE(sortMap);
+    String sortMap = sortedKeysAsc
+        .toString()
+        .replaceAll("{", "")
+        .replaceAll("}", "")
+        .replaceAll("=", "")
+        .replaceAll(":", "")
+        .replaceAll(",", "")
+        .replaceAll(" ", "")
+        .replaceAll("+", "")
+        .replaceAll("/", "");
     //3.使用MD5进行加密，再转化成大写
 
     return MD5Encryption.md5Crypto(sortMap);

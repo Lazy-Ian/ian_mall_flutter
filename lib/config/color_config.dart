@@ -15,7 +15,10 @@ class ColorConfig {
   static Color backgroundColor = const Color(0xFFF3F4F8);
   static Color firstTextColor = const Color(0xFFbbbbbb);
   static Color secondTextColor = const Color(0xFF666666);
+  static Color textColor888 = const Color(0xFF888888);
+  static Color textColor999 = const Color(0xFF999999);
 
   /// 背景边框颜色
   static Color bgColor = const Color(0xFFF6F9FF);
+  static Color colorF2 = const Color(0xFFF2F2F2);
 }

@@ -28,7 +28,7 @@ class AppUtil {
       random += Random().nextInt(10).toString();
     }
 
-    logI("random=" + random);
+    // logI("random=" + random);
     return random;
   }
 

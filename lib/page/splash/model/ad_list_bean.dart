@@ -2,25 +2,23 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ad_list_bean.g.dart';
 
-
 @JsonSerializable()
-class AdListBean  {
-
+class AdListBean {
   @JsonKey(name: 'list')
   List<AdListInfoBean> list;
 
-  AdListBean(this.list,);
+  AdListBean(
+    this.list,
+  );
 
-  factory AdListBean.fromJson(Map<String, dynamic> srcJson) => _$AdListBeanFromJson(srcJson);
+  factory AdListBean.fromJson(Map<String, dynamic> srcJson) =>
+      _$AdListBeanFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$AdListBeanToJson(this);
-
 }
 
-
 @JsonSerializable()
-class AdListInfoBean  {
-
+class AdListInfoBean {
   @JsonKey(name: 'title')
   late String title;
 
@@ -36,12 +34,16 @@ class AdListInfoBean  {
   @JsonKey(name: 'jumpType')
   late String jumpType;
 
-  AdListInfoBean(this.title,this.categoryId,this.url,this.imageUrl,this.jumpType,);
+  AdListInfoBean(
+    this.title,
+    this.categoryId,
+    this.url,
+    this.imageUrl,
+    this.jumpType,
+  );
 
-  factory AdListInfoBean.fromJson(Map<String, dynamic> srcJson) => _$AdListInfoBeanFromJson(srcJson);
+  factory AdListInfoBean.fromJson(Map<String, dynamic> srcJson) =>
+      _$AdListInfoBeanFromJson(srcJson);
 
   Map<String, dynamic> toJson() => _$AdListInfoBeanToJson(this);
-
 }
-
-
