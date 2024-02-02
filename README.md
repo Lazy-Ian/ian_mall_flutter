@@ -14,3 +14,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+# 第一步 复制接送到下面网站
+ - https://caijinglong.github.io/json2dart/index.html
+# 第二步 terminal 输入下面命令语句 生成.g 文件
+ - flutter packages pub run build_runner build
+# 第三步： lib/generated/json/base/json_convet_content.dart  中添加
+- _getListChildType   中 添加对应的
+- convertFuncMap 中 添加对应的 

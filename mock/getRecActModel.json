@@ -1,0 +1,51 @@
+{
+  "code": 200,
+  "status": "success",
+  "statusDesc": "请求成功",
+  "uuid": "de6b6df3-9342-a963-49bc-7f64b07b11ad",
+  "data": {
+    "list": [
+      {
+        "product_list": [
+          {
+            "newPrice": "35.00",
+            "product_id": "60783",
+            "product_img": "https:\/\/image3.24th.com\/product\/image\/20230216\/8u\/qd\/8uqd5j37ihl1jg89xhoe.jpg?x-oss-process=image\/resize,h_200,w_200,m_pad,color_FFFFFF\/sharpen,100\/contrast,3",
+            "product_sku": "hnWS00041532-100338339"
+          },
+          {
+            "newPrice": "54.90",
+            "product_id": "60847",
+            "product_img": "https:\/\/image4.24th.com\/product\/detail\/20230220\/sx\/23\/sx23021301sp_8001-3mcgl0.jpg?x-oss-process=image\/resize,h_200,w_200,m_pad,color_FFFFFF\/sharpen,100\/contrast,3",
+            "product_sku": "sx23021301sp"
+          }
+        ],
+        "sub_title": "品质好物 补贴低价",
+        "title": "每日特惠",
+        "type": "1",
+        "url": ""
+      },
+      {
+        "product_list": [
+          {
+            "newPrice": "",
+            "product_id": "64496",
+            "product_img": "https:\/\/image5.24th.com\/product\/image\/20240126\/nt\/a9\/nta9mghv5bcryj75j208.jpg?x-oss-process=image\/resize,h_200,w_200,m_pad,color_FFFFFF\/sharpen,100\/contrast,3",
+            "product_sku": ""
+          },
+          {
+            "newPrice": "",
+            "product_id": "64495",
+            "product_img": "https:\/\/image6.24th.com\/product\/image\/20240126\/zy\/99\/zy99bgo2axfd8pjg3udp.jpg?x-oss-process=image\/resize,h_200,w_200,m_pad,color_FFFFFF\/sharpen,100\/contrast,3",
+            "product_sku": ""
+          }
+        ],
+        "sub_title": "发现新品",
+        "title": "最新上架",
+        "type": "2",
+        "url": ""
+      }
+    ]
+  },
+  "request": "home\/getRecActModel"
+}

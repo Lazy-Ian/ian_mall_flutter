@@ -8,5 +8,7 @@ class ApiUrl {
 
   ///获取serviceIp
   static const getAdListUrl = "$releaseHost$v1/system/getAdList";
-  static const getRecBannerUrl = "$releaseHost$v1/home/getRecBanner";
+  static const getRecBannerUrl = "$releaseHost$v1/home/getRecBanner"; // 首页banner
+  static const getRecActModel = "$releaseHost$v1/home/getRecActModel"; //  ///自定义活动 每日特惠 最新上架
+  static const getHomeRecProductList = "$releaseHost$v1/home/getHomeRecProductList"; // 推荐商品列表
 }

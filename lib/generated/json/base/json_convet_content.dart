@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart' show debugPrint;
 import 'package:ian_mall_flutter/page/home/model/home_banner_bean.dart';
+import 'package:ian_mall_flutter/page/home/model/home_rec_act_model.dart';
+import 'package:ian_mall_flutter/page/home/model/home_rec_tab_product_list_model.dart';
 import 'package:ian_mall_flutter/page/splash/model/ad_list_bean.dart';
 
 /// Created by Ian on 2024/1/16
 /// Email: yixin0212@qq.com
-/// Function :
+/// Function : 解析神器
 JsonConvert jsonConvert = JsonConvert();
 
 typedef JsonConvertFunction<T> = T Function(Map<String, dynamic> json);
@@ -12,15 +14,30 @@ typedef EnumConvertFunction<T> = T Function(String value);
 
 class JsonConvert {
   static final Map<String, JsonConvertFunction> convertFuncMap = {
+    (HomeRecTabProductListModel).toString(): HomeRecTabProductListModel.fromJson,
+    (HomeRecActModel).toString(): HomeRecActModel.fromJson,
     (HomeBannerBean).toString(): HomeBannerBean.fromJson,
     (AdListBean).toString(): AdListBean.fromJson,
   };
 
   //list is returned by type
   static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
+    if (<HomeRecTabProductListModel>[] is M) {
+      return data
+          .map<HomeRecTabProductListModel>(
+              (Map<String, dynamic> e) => HomeRecTabProductListModel.fromJson(e))
+          .toList() as M;
+    }
+    if (<HomeRecActModel>[] is M) {
+      return data
+          .map<HomeRecActModel>(
+              (Map<String, dynamic> e) => HomeRecActModel.fromJson(e))
+          .toList() as M;
+    }
     if (<HomeBannerBean>[] is M) {
       return data
-          .map<HomeBannerBean>((Map<String, dynamic> e) => HomeBannerBean.fromJson(e))
+          .map<HomeBannerBean>(
+              (Map<String, dynamic> e) => HomeBannerBean.fromJson(e))
           .toList() as M;
     }
     if (<AdListBean>[] is M) {
