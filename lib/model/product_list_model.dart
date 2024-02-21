@@ -11,51 +11,51 @@ part 'product_list_model.g.dart';
 @JsonSerializable()
 class ProductListModel extends Object {
 
-  String brand_desc;
+  String brand_desc =  "";
 
-  String brand_id;
+  String brand_id =  "";
 
-  String brand_name;
+  String brand_name =  "";
 
-  CellInfoModel cell_info;
+  CellInfoModel cell_info = CellInfoModel("","","","","");
 
-  String cell_type;
+  String cell_type  =  "";
 
-  String discount;
+  String discount =  "";
 
-  String exclusivePrice;
+  String exclusivePrice =  "";
 
-  String finalPrice;
+  String finalPrice =  "";
 
-  int group_number;
+  int group_number = -1;
 
-  String groupPrice;
+  String groupPrice =  "";
 
-  String groupSavePrice;
+  String groupSavePrice =  "";
 
-  String hasVideo;
+  String hasVideo =  "";
 
-  String hotSaleDesc;
+  String hotSaleDesc =  "";
 
-  String isCollection;
+  String isCollection =  "";
 
-  String isGroup;
+  String isGroup =  "";
 
-  String newPrice;
+  String newPrice =  "";
 
-  String oldPrice;
+  String oldPrice =  "";
 
-  String product_id;
+  String product_id =  "";
 
-  String product_img;
+  String product_img =  "";
 
-  String product_title;
+  String product_title =  "";
 
-  String stock_status;
+  String stock_status =  "";
 
-  List<TagListModel> tag_list;
+  List<TagListModel> tag_list =  [];
 
-  String guaranteePrice;
+  String guaranteePrice =  "";
 
   ProductListModel(this.brand_desc,this.brand_id,this.brand_name,this.cell_info,this.cell_type,this.discount,this.exclusivePrice,this.finalPrice,this.group_number,this.groupPrice,this.groupSavePrice,this.hasVideo,this.hotSaleDesc,this.isCollection,this.isGroup,this.newPrice,this.oldPrice,this.product_id,this.product_img,this.product_title,this.stock_status,this.tag_list,this.guaranteePrice,);
 
@@ -69,15 +69,15 @@ class ProductListModel extends Object {
 @JsonSerializable()
 class CellInfoModel extends Object {
 
-  String activity_content;
+  String activity_content =  "";
 
-  String activity_url;
+  String activity_url =  "";
 
-  String cell_header;
+  String cell_header =  "";
 
-  String cell_id;
+  String cell_id =  "";
 
-  String cell_title;
+  String cell_title =  "";
 
   CellInfoModel(this.activity_content,this.activity_url,this.cell_header,this.cell_id,this.cell_title,);
 
@@ -91,11 +91,11 @@ class CellInfoModel extends Object {
 @JsonSerializable()
 class TagListModel extends Object {
 
-  String tag_id;
+  String tag_id = "";
 
-  String tag_name;
+  String tag_name = "";
 
-  String tag_type;
+  String tag_type = "";
 
   TagListModel(this.tag_id,this.tag_name,this.tag_type,);
 

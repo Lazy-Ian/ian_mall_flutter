@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ian_mall_flutter/base/provider_selector_widget.dart';
 import 'package:ian_mall_flutter/config/color_config.dart';
+import 'package:ian_mall_flutter/page/category/view/category_page.dart';
 import 'package:ian_mall_flutter/page/home/view/home_page.dart';
 import 'package:ian_mall_flutter/page/tabbar/view_model/tabbar_view_model.dart';
 
@@ -14,11 +15,15 @@ class TabbarPage extends StatefulWidget {
   const TabbarPage({super.key, required this.indexPage});
 
   @override
-  State<TabbarPage> createState() => _TabBarPageState();
+  State<TabbarPage> createState() => _TabBarPageState(indexPage);
 }
 
 class _TabBarPageState extends State<TabbarPage> {
   TabberViewModel tabberViewModel = TabberViewModel();
+
+  _TabBarPageState(int indexPage) {
+    tabberViewModel.selectIndex = indexPage;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,7 @@ class _TabBarPageState extends State<TabbarPage> {
   Widget _buildPage(BuildContext context, int selectIndex) {
     List<Widget> tabPageList = [
       const HomePage(),
-      const HomePage(),
+      const CategoryPage(),
       const HomePage(),
       const HomePage(),
       const HomePage()

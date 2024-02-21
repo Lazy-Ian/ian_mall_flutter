@@ -9,6 +9,8 @@ import 'package:ian_mall_flutter/page/home/model/home_rec_act_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_tab_product_list_model.dart';
 import 'package:ian_mall_flutter/page/home/state/home_state.dart';
 
+import '../../../net/log_utils.dart';
+
 /// Created by Ian on 2024/1/19
 /// Email: yixin0212@qq.com
 /// Function :
@@ -33,13 +35,15 @@ class HomeViewModel extends BaseViewModel {
     state.netState = HandleState.handle(responseModel);
     if (state.netState == NetState.dataSuccessState) {
       state.actActModel = responseModel.data;
-    }
+      logE("==============>${ state.actActModel}");
+
+  }
     notifyListeners();
   }
 
   Future<void> getHomeRecProductListTab() async {
     var params = {
-      'category_id': "0",
+      'category_id': "69",
       'pageIndex': 1,
       'pageSize': 19,
     };

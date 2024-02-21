@@ -11,4 +11,7 @@ class ApiUrl {
   static const getRecBannerUrl = "$releaseHost$v1/home/getRecBanner"; // 首页banner
   static const getRecActModel = "$releaseHost$v1/home/getRecActModel"; //  ///自定义活动 每日特惠 最新上架
   static const getHomeRecProductList = "$releaseHost$v1/home/getHomeRecProductList"; // 推荐商品列表
+  static const getParentCategories = "$releaseHost$v1/category/getParentCategories"; // 分类-左侧列表
+
+  static const getChildCategories = "$releaseHost$v1/category/getChildCategories"; // 分类-右侧列表
 }

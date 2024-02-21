@@ -1,4 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -6,16 +7,20 @@ import 'package:ian_mall_flutter/base/base_page.dart';
 import 'package:ian_mall_flutter/base/multi_state_widget.dart';
 import 'package:ian_mall_flutter/base/provider_consumer_widget.dart';
 import 'package:ian_mall_flutter/config/color_config.dart';
+import 'package:ian_mall_flutter/config/util.dart';
 import 'package:ian_mall_flutter/generated/l10n.dart';
+import 'package:ian_mall_flutter/model/home_act_product_list_model.dart';
 import 'package:ian_mall_flutter/model/product_list_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_banner_bean.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_act_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_tab_product_list_model.dart';
+import 'package:ian_mall_flutter/page/home/view/rec_product_list_page.dart';
 import 'package:ian_mall_flutter/page/home/view_model/home_view_model.dart';
 import 'package:ian_mall_flutter/utils/device_util.dart';
 import 'package:ian_mall_flutter/utils/string_util.dart';
 import 'package:ian_mall_flutter/widgets/easy_loading.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logger/logger.dart';
 
 /// Created by Ian on 2024/1/17
 /// Email: yixin0212@qq.com
@@ -27,8 +32,7 @@ class HomePage extends BasePage {
   BasePageState<BasePage> getState() => _HomePageState();
 }
 
-class _HomePageState extends BasePageState<HomePage>
-    with TickerProviderStateMixin {
+class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMixin {
   HomeViewModel homeViewModel = HomeViewModel();
   final ImagePicker _picker = ImagePicker();
   double radius = 8;
@@ -90,14 +94,15 @@ class _HomePageState extends BasePageState<HomePage>
           _tabController = TabController(
               length: viewModel.state.tabProductListModel!.list.length,
               vsync: this);
-        }
 
         ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
         _tabController.addListener(() {
           String category_id = homeViewModel.state.tabProductListModel!
               .list[_tabController.index].category_id;
+          LogE("_tabController: "+category_id);
           homeViewModel.getHomeRecProductList(category_id, _pageIndex);
         });
+        }
         double statusBarHeight = MediaQuery.of(context).padding.top;
 
         ///轮播图高度
@@ -179,52 +184,9 @@ class _HomePageState extends BasePageState<HomePage>
                 },
                 body: TabBarView(
                   controller: _tabController,
-
                   ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
-                  children: <Widget>[
-                    ///推荐商品列表
+                  children: viewModel.state.tabProductListModel!.list.map((item) => _getRecProductList(item,viewModel.state.tabProductListModel!)).toList(),
 
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.blueAccent,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.blueAccent,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.blueAccent,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.blueAccent,
-                    ),
-                    Container(
-                      width: 200,
-                      height: 300,
-                      color: Colors.green,
-                    ),
-                  ],
                 ),
               );
             },
@@ -279,6 +241,16 @@ class _HomePageState extends BasePageState<HomePage>
       children: list.map((item) => _getSafeguardsItem(item)).toList(),
     );
   }
+  ///推荐商品列表
+  Widget _getRecProductList(TabList item, HomeRecTabProductListModel model){
+    return  RecProductListPage(homeRecTabProductListModel: model);
+    // return Container(
+    //   width: 200,
+    //   height: 300,
+    //   color: Colors.blueAccent,
+    //   child:  Text(item.category_id + " name:" + item.category_title  + "  >>> " + model.total.toString()),
+    // );
+  }
 
   /// item tag
   Widget _getSafeguardsItem(Safeguards model) {
@@ -309,11 +281,18 @@ class _HomePageState extends BasePageState<HomePage>
 
   ///分类
   Widget _getCategoryWidget(List<Categories> list) {
-    return StaggeredGrid.count(
-      crossAxisCount: ceragoryCrossAxisCount,
-      mainAxisSpacing: 10.h,
-      crossAxisSpacing: 0,
-      children: list.map((item) => getCategoryItem(item)).toList(),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+      child: StaggeredGrid.count(
+        crossAxisCount: ceragoryCrossAxisCount,
+        mainAxisSpacing: 10.h,
+        crossAxisSpacing: 0,
+        children: list.map((item) => getCategoryItem(item)).toList(),
+      ),
     );
   }
 
@@ -394,7 +373,7 @@ class _HomePageState extends BasePageState<HomePage>
   /// 每日推荐  最新上架
   Widget _getRecActsModelWidget(List<ActModelList> list) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+        margin: const EdgeInsets.fromLTRB(8, 8, 0, 8),
         child: StaggeredGrid.count(
           crossAxisCount: 2,
           mainAxisSpacing: 10.h,
@@ -406,7 +385,7 @@ class _HomePageState extends BasePageState<HomePage>
   /// 每日推荐  最新上架 item
   Widget _getRecActsModelItem(ActModelList item) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+      padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
       child: Ink(
         child: InkWell(
           borderRadius: BorderRadius.circular(radius),
@@ -455,7 +434,7 @@ class _HomePageState extends BasePageState<HomePage>
   }
 
   /// 每日推荐  最新上架 item 图片
-  Widget _getRecActsModelItemImg(ProductListModel item) {
+  Widget _getRecActsModelItemImg(HomeActProductListModel item) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 4, 4, 4),
       child: Image.network(item.product_img),

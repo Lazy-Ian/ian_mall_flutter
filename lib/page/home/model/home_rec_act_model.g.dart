@@ -20,7 +20,8 @@ Map<String, dynamic> _$HomeRecActModelToJson(HomeRecActModel instance) =>
 
 ActModelList _$ActModelListFromJson(Map<String, dynamic> json) => ActModelList(
       (json['product_list'] as List<dynamic>)
-          .map((e) => ProductListModel.fromJson(e as Map<String, dynamic>))
+          .map((e) =>
+              HomeActProductListModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['sub_title'] as String,
       json['title'] as String,
