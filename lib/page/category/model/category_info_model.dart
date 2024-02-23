@@ -13,9 +13,8 @@ class CategoryInfoModel extends Object {
   String menu_id;
   String menu_name;
   String national_pavilion_url;
-  bool isSelected;
 
-  CategoryInfoModel(this.menu_id, this.menu_name, this.national_pavilion_url,this.isSelected);
+  CategoryInfoModel(this.menu_id, this.menu_name, this.national_pavilion_url);
 
   factory CategoryInfoModel.fromJson(Map<String, dynamic> srcJson) =>
       _$CategoryInfoModelFromJson(srcJson);

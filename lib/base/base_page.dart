@@ -103,7 +103,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
   ///抽象header上的组件
   Widget left() {
     return Image(
-      image: const AssetImage("assets/images/back_black.png"),
+      image: const AssetImage("assets/images/loading.gif"),
       height: 20.h,
       width: 20.w,
     );
