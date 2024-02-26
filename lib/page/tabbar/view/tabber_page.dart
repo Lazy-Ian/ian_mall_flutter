@@ -5,6 +5,7 @@ import 'package:ian_mall_flutter/config/color_config.dart';
 import 'package:ian_mall_flutter/page/category/view/category_page.dart';
 import 'package:ian_mall_flutter/page/home/view/home_page.dart';
 import 'package:ian_mall_flutter/page/tabbar/view_model/tabbar_view_model.dart';
+import 'package:ian_mall_flutter/page/topics/view/topics_page.dart';
 
 /// Created by Ian on 2024/1/17
 /// Email: yixin0212@qq.com
@@ -42,7 +43,7 @@ class _TabBarPageState extends State<TabbarPage> {
     List<Widget> tabPageList = [
       const HomePage(),
       const CategoryPage(),
-      const HomePage(),
+      const TopicsPage(),
       const HomePage(),
       const HomePage()
     ];
@@ -58,7 +59,7 @@ class _TabBarPageState extends State<TabbarPage> {
         items: [
           BottomNavigationBarItem(
               icon: Padding(
-                padding: EdgeInsets.only(top: 12.h, bottom: 6.h),
+                padding: EdgeInsets.only(top: 4.h, bottom: 6.h),
                 child: Image(
                     fit: BoxFit.fill,
                     width: 55.w,
@@ -73,7 +74,7 @@ class _TabBarPageState extends State<TabbarPage> {
               label: '首页'),
           BottomNavigationBarItem(
               icon: Padding(
-                padding: EdgeInsets.only(top: 12.h, bottom: 6.h),
+                padding: EdgeInsets.only(top: 4.h, bottom: 6.h),
                 child: Image(
                     fit: BoxFit.fill,
                     width: 55.w,
@@ -88,7 +89,7 @@ class _TabBarPageState extends State<TabbarPage> {
               label: '分类'),
           BottomNavigationBarItem(
               icon: Padding(
-                padding: EdgeInsets.only(top: 12.h, bottom: 6.h),
+                padding: EdgeInsets.only(top: 4.h, bottom: 6.h),
                 child: Image(
                     fit: BoxFit.fill,
                     width: 55.w,
@@ -103,7 +104,7 @@ class _TabBarPageState extends State<TabbarPage> {
               label: '发现'),
           BottomNavigationBarItem(
               icon: Padding(
-                padding: EdgeInsets.only(top: 12.h, bottom: 6.h),
+                padding: EdgeInsets.only(top: 4.h, bottom: 6.h),
                 child: Image(
                     fit: BoxFit.fill,
                     width: 55.w,
@@ -118,7 +119,7 @@ class _TabBarPageState extends State<TabbarPage> {
               label: '购物车'),
           BottomNavigationBarItem(
               icon: Padding(
-                padding: EdgeInsets.only(top: 12.h, bottom: 6.h),
+                padding: EdgeInsets.only(top: 4.h, bottom: 6.h),
                 child: Image(
                     fit: BoxFit.fill,
                     width: 55.w,

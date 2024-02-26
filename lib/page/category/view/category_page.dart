@@ -26,6 +26,14 @@ class _CategoryPageState extends BasePageState<CategoryPage> {
   bool isFirst = true;
 
   @override
+  void initState() {
+    super.initState();
+    super.pageTitle = '分类';
+    isBack = false;
+
+  }
+
+  @override
   Widget buildPage(BuildContext context) {
     return ProviderConsumerWidget<CategoryViewModel>(
       viewModel: categoryViewModel,
@@ -49,57 +57,55 @@ class _CategoryPageState extends BasePageState<CategoryPage> {
                       categoryViewModel.state.categoryInfoModel![0].menu_id);
                 }
                 return Row(
-                  children: [
-                    Container(
-                      width: 100.w,
-                      alignment: Alignment.topLeft,
-                      child: MediaQuery.removePadding(
-                        context: context,
-                        removeTop: true,
-                        child: ListView.builder(
-                          shrinkWrap: true, //内容适配
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount:
-                          categoryViewModel.state.categoryInfoModel!.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return _leftCategoryItems(
-                                categoryViewModel
-                                    .state.categoryInfoModel![index],
-                                index);
-                          },
-                        ),
-                      ),
-                    ),
-                    Flexible(
-                      child: Container(
-                        alignment: Alignment.topLeft,
-                        // decoration: BoxDecoration(
-                        //   color: Colors.white,
-                        //   borderRadius: BorderRadius.circular(8),
-                        // ),
-                        padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
-                        child: MediaQuery.removePadding(
-                          context: context,
-                          removeTop: true,
-                          child: ListView.builder(
-                            shrinkWrap: true, //内容适配
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: categoryViewModel.state
-                                .categoryInfoChildModel!.cate_list!.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return _rightCategoryItems(
-                                  categoryViewModel
-                                      .state
-                                      .categoryInfoChildModel!
-                                      .cate_list![index],
-                                  index);
-                            },
+                        children: [
+                          Container(
+                            width: 100.w,
+                            alignment: Alignment.topLeft,
+                            child: MediaQuery.removePadding(
+                              context: context,
+                              removeTop: true,
+                              child: ListView.builder(
+                                shrinkWrap: true, //内容适配
+                                itemCount: categoryViewModel
+                                    .state.categoryInfoModel!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return _leftCategoryItems(
+                                      categoryViewModel
+                                          .state.categoryInfoModel![index],
+                                      index);
+                                },
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
+                          Flexible(
+                            child: Container(
+                              alignment: Alignment.topLeft,
+                              // decoration: BoxDecoration(
+                              //   color: Colors.white,
+                              //   borderRadius: BorderRadius.circular(8),
+                              // ),
+                              padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+                              child: MediaQuery.removePadding(
+                                context: context,
+                                removeTop: true,
+                                child: ListView.builder(
+                                  shrinkWrap: true, //内容适配
+                                  itemCount: categoryViewModel.state
+                                      .categoryInfoChildModel!.cate_list!.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return _rightCategoryItems(
+                                        categoryViewModel
+                                            .state
+                                            .categoryInfoChildModel!
+                                            .cate_list![index],
+                                        index);
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
               },
             ),
           ],
@@ -142,7 +148,23 @@ class _CategoryPageState extends BasePageState<CategoryPage> {
   Widget _rightCategoryItems(CateListModel item, int index) {
     return Column(
       children: [
-        Text(item.parent_name),
+        Padding(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                item.parent_name,
+                style:
+                    TextStyle(color: ColorConfig.textColor333, fontSize: 12.sp),
+              ),
+              Text(
+                "热销榜",
+                style: TextStyle(color: ColorConfig.mainColor, fontSize: 10.sp),
+              ),
+            ],
+          ),
+        ),
         Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -153,8 +175,8 @@ class _CategoryPageState extends BasePageState<CategoryPage> {
             crossAxisCount: 3,
             mainAxisSpacing: 10.h,
             crossAxisSpacing: 0,
-            children:
-            item.child_list.map((item) => _getChildCategoryItems(item))
+            children: item.child_list
+                .map((item) => _getChildCategoryItems(item))
                 .toList(),
           ),
         ),
@@ -164,17 +186,13 @@ class _CategoryPageState extends BasePageState<CategoryPage> {
 
   Widget _getChildCategoryItems(CateListChildListModel item) {
     return GestureDetector(
-        onTap: () {
-
-        },
+        onTap: () {},
         child: SizedBox(
           child: Column(
             children: <Widget>[
               Image.network(
-                width:
-                (DeviceUtil.width(context) - 110.w) / 3,
-                height:
-                (DeviceUtil.width(context) - 110.w) / 3,
+                width: (DeviceUtil.width(context) - 110.w) / 3,
+                height: (DeviceUtil.width(context) - 110.w) / 3,
                 item.category_img,
                 fit: BoxFit.fitHeight,
               ),

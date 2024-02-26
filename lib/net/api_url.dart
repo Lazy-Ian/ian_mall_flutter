@@ -14,4 +14,6 @@ class ApiUrl {
   static const getParentCategories = "$releaseHost$v1/category/getParentCategories"; // 分类-左侧列表
 
   static const getChildCategories = "$releaseHost$v1/category/getChildCategories"; // 分类-右侧列表
+
+  static const getTopicsList = "$releaseHost$v1/topics/getTopicsList"; // 分类-右侧列表
 }

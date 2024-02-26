@@ -5,6 +5,7 @@ import 'package:ian_mall_flutter/page/home/model/home_banner_bean.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_act_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_tab_product_list_model.dart';
 import 'package:ian_mall_flutter/page/splash/model/ad_list_bean.dart';
+import 'package:ian_mall_flutter/page/topics/model/topics_list_model.dart';
 
 /// Created by Ian on 2024/1/16
 /// Email: yixin0212@qq.com
@@ -16,6 +17,7 @@ typedef EnumConvertFunction<T> = T Function(String value);
 
 class JsonConvert {
   static final Map<String, JsonConvertFunction> convertFuncMap = {
+    (TopicsListModel).toString(): TopicsListModel.fromJson,
     (CategoryInfoChildModel).toString(): CategoryInfoChildModel.fromJson,
     (CategoryInfoListModel).toString(): CategoryInfoListModel.fromJson,
     (HomeRecTabProductListModel).toString(): HomeRecTabProductListModel.fromJson,
@@ -26,7 +28,13 @@ class JsonConvert {
 
   //list is returned by type
   static M? _getListChildType<M>(List<Map<String, dynamic>> data) {
-    if (<CategoryInfoChildModel>[] is M) {
+    if (<TopicsListModel>[] is M) {
+      return data
+          .map<TopicsListModel>(
+              (Map<String, dynamic> e) => TopicsListModel.fromJson(e))
+          .toList() as M;
+    }
+      if (<CategoryInfoChildModel>[] is M) {
       return data
           .map<CategoryInfoChildModel>(
               (Map<String, dynamic> e) => CategoryInfoChildModel.fromJson(e))

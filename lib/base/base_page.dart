@@ -48,6 +48,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
 
   /// header显示页面title
   String pageTitle = '';
+  bool isSearchView = false;
 
   /// 是否允许某个页iOS滑动返回，Android物理返回键返回
   bool isAllowBack = true;
@@ -103,7 +104,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
   ///抽象header上的组件
   Widget left() {
     return Image(
-      image: const AssetImage("assets/images/loading.gif"),
+      image: const AssetImage("assets/images/ic_back.png"),
       height: 20.h,
       width: 20.w,
     );
@@ -160,7 +161,7 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
             leading: _left(),
             elevation: 0.2,
             actions: [_right()],
-            backgroundColor: navColor ?? Colors.white,
+            backgroundColor:  navColor ?? Colors.white,
           )
               : null,
           body: _isRenderPage == false ? const SizedBox() : _content(),

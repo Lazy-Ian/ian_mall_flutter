@@ -35,8 +35,6 @@ class HomeViewModel extends BaseViewModel {
     state.netState = HandleState.handle(responseModel);
     if (state.netState == NetState.dataSuccessState) {
       state.actActModel = responseModel.data;
-      logE("==============>${ state.actActModel}");
-
   }
     notifyListeners();
   }
