@@ -4,6 +4,7 @@ import 'package:ian_mall_flutter/base/provider_selector_widget.dart';
 import 'package:ian_mall_flutter/config/color_config.dart';
 import 'package:ian_mall_flutter/page/category/view/category_page.dart';
 import 'package:ian_mall_flutter/page/home/view/home_page.dart';
+import 'package:ian_mall_flutter/page/mine/view/mine_page.dart';
 import 'package:ian_mall_flutter/page/tabbar/view_model/tabbar_view_model.dart';
 import 'package:ian_mall_flutter/page/topics/view/topics_page.dart';
 
@@ -45,7 +46,7 @@ class _TabBarPageState extends State<TabbarPage> {
       const CategoryPage(),
       const TopicsPage(),
       const HomePage(),
-      const HomePage()
+      const MinePage()
     ];
 
     ///底部tab
