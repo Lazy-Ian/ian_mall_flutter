@@ -22,3 +22,14 @@ samples, guidance on mobile development, and a full API reference.
 # 第三步： lib/generated/json/base/json_convet_content.dart  中添加
 - _getListChildType   中 添加对应的
 - convertFuncMap 中 添加对应的 
+- 
+# Android 运行打包命令
+flutter build apk --release
+# 如果有空安全，运行打包命令
+# 可选debug，release，profile
+flutter build apk --no-sound-null-safety --release
+
+# 运行打包命令
+flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+# ios  XCode  Apple ID
+flutter build ios

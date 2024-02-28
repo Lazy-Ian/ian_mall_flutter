@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ian_mall_flutter/config/color_config.dart';
+import 'package:ian_mall_flutter/utils/device_util.dart';
+import 'package:ian_mall_flutter/utils/string_util.dart';
+
+import '../generated/l10n.dart';
 import '../routers/navigator_utils.dart';
 import '../widgets/easy_loading.dart';
-import 'base_state.dart';
 import 'base_will_pop.dart';
-
 
 /// Created by Ian on 2024/1/19
 /// Email: yixin0212@qq.com
-/// Function : 
+/// Function :
 abstract class BasePage extends StatefulWidget {
   const BasePage({Key? key}) : super(key: key);
 
@@ -18,10 +21,9 @@ abstract class BasePage extends StatefulWidget {
 
   ///子类实现
   BasePageState getState();
-
 }
-abstract class BasePageState<T extends BasePage> extends State<T> {
 
+abstract class BasePageState<T extends BasePage> extends State<T> {
   /// 是否渲染buildPage内容
   bool _isRenderPage = false;
 
@@ -32,7 +34,8 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
   Color? navColor;
 
   /// 左右按钮横向padding
-  final EdgeInsets _btnPaddingH = EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h);
+  final EdgeInsets _btnPaddingH =
+      EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h);
 
   /// 导航栏高度
   double navBarH = AppBar().preferredSize.height;
@@ -154,16 +157,58 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
         child: Scaffold(
           appBar: isRenderHeader == true
               ? AppBar(
-            centerTitle: true,
-            title: Text(pageTitle,
-                style: TextStyle(
-                    color: Colors.black, fontSize: 17.sp, fontWeight: FontWeight.w500)),
-            leading: _left(),
-            elevation: 0.2,
-            actions: [_right()],
-            backgroundColor:  navColor ?? Colors.white,
-          )
-              : null,
+                  centerTitle: true,
+                  title: Text(pageTitle,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w500)),
+                  leading: _left(),
+                  elevation: 0.2,
+                  actions: [_right()],
+                  backgroundColor: navColor ?? Colors.transparent,
+                )
+          : null,
+              // : AppBar(
+              //     title: Container(
+              //       alignment: Alignment.centerLeft,
+              //       padding: const EdgeInsets.only(left: 8, top: 4, bottom: 4),
+              //       width: DeviceUtil.width(context),
+              //       decoration: ShapeDecoration(
+              //         color: ColorConfig.colorF2,
+              //         //设置圆角
+              //         shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadiusDirectional.circular(30)),
+              //       ),
+              //       margin: EdgeInsets.only(
+              //           left: 8.h,
+              //           right: 8.h,
+              //           top: DeviceUtil.actionBarHeight(context)),
+              //       child: Wrap(
+              //         alignment: WrapAlignment.center,
+              //         children: [
+              //           Image.asset(
+              //             StringUtil.imagePath("ic_search"),
+              //             width: 25.w,
+              //             height: 25.h,
+              //           ),
+              //           SizedBox(
+              //             child: Text(
+              //               S.of(context).search_hit,
+              //               style: TextStyle(
+              //                   height: 2.h,
+              //                   color: ColorConfig.textColor999,
+              //                   fontSize: 12.sp),
+              //               textAlign: TextAlign.center,
+              //             ),
+              //           )
+              //         ],
+              //       ),
+              //     ),
+              //     elevation: 0.0,
+              //     backgroundColor: navColor ?? Colors.transparent,
+              //   ),
+
           body: _isRenderPage == false ? const SizedBox() : _content(),
           resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         ),

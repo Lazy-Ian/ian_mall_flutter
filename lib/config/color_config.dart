@@ -23,4 +23,5 @@ class ColorConfig {
   /// 背景边框颜色
   static Color bgColor = const Color(0xFFF6F9FF);
   static Color colorF2 = const Color(0xFFF2F2F2);
+  static Color color5d = const Color(0xFF5D86E8);
 }

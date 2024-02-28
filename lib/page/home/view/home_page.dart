@@ -1,5 +1,4 @@
 import 'package:card_swiper/card_swiper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -10,7 +9,6 @@ import 'package:ian_mall_flutter/config/color_config.dart';
 import 'package:ian_mall_flutter/config/util.dart';
 import 'package:ian_mall_flutter/generated/l10n.dart';
 import 'package:ian_mall_flutter/model/home_act_product_list_model.dart';
-import 'package:ian_mall_flutter/model/product_list_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_banner_bean.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_act_model.dart';
 import 'package:ian_mall_flutter/page/home/model/home_rec_tab_product_list_model.dart';
@@ -20,7 +18,6 @@ import 'package:ian_mall_flutter/utils/device_util.dart';
 import 'package:ian_mall_flutter/utils/string_util.dart';
 import 'package:ian_mall_flutter/widgets/easy_loading.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:logger/logger.dart';
 
 /// Created by Ian on 2024/1/17
 /// Email: yixin0212@qq.com
@@ -32,7 +29,8 @@ class HomePage extends BasePage {
   BasePageState<BasePage> getState() => _HomePageState();
 }
 
-class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMixin {
+class _HomePageState extends BasePageState<HomePage>
+    with TickerProviderStateMixin {
   HomeViewModel homeViewModel = HomeViewModel();
   final ImagePicker _picker = ImagePicker();
   double radius = 8;
@@ -45,7 +43,7 @@ class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMix
     super.initState();
     super.pageTitle = '首页';
     super.isRenderHeader = false;
-    isBack = false;
+    // isBack = false;
 
     _tabController = TabController(
         vsync: this,
@@ -95,13 +93,13 @@ class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMix
               length: viewModel.state.tabProductListModel!.list.length,
               vsync: this);
 
-        ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
-        _tabController.addListener(() {
-          String category_id = homeViewModel.state.tabProductListModel!
-              .list[_tabController.index].category_id;
-          LogE("_tabController: "+category_id);
-          homeViewModel.getHomeRecProductList(category_id, _pageIndex);
-        });
+          ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
+          _tabController.addListener(() {
+            String category_id = homeViewModel.state.tabProductListModel!
+                .list[_tabController.index].category_id;
+            LogE("_tabController: " + category_id);
+            homeViewModel.getHomeRecProductList(category_id, _pageIndex);
+          });
         }
         double statusBarHeight = MediaQuery.of(context).padding.top;
 
@@ -184,9 +182,12 @@ class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMix
                 },
                 body: TabBarView(
                   controller: _tabController,
-                  ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
-                  children: viewModel.state.tabProductListModel!.list.map((item) => _getRecProductList(item,viewModel.state.tabProductListModel!)).toList(),
 
+                  ///监听TabController的动画，实时刷新，这样选中背景就能跟随移动了
+                  children: viewModel.state.tabProductListModel!.list
+                      .map((item) => _getRecProductList(
+                          item, viewModel.state.tabProductListModel!))
+                      .toList(),
                 ),
               );
             },
@@ -241,9 +242,10 @@ class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMix
       children: list.map((item) => _getSafeguardsItem(item)).toList(),
     );
   }
+
   ///推荐商品列表
-  Widget _getRecProductList(TabList item, HomeRecTabProductListModel model){
-    return  RecProductListPage(homeRecTabProductListModel: model);
+  Widget _getRecProductList(TabList item, HomeRecTabProductListModel model) {
+    return RecProductListPage(homeRecTabProductListModel: model);
     // return Container(
     //   width: 200,
     //   height: 300,
@@ -493,34 +495,37 @@ class _HomePageState extends BasePageState<HomePage> with TickerProviderStateMix
         //     color: ColorConfig.textColor999,
         //   ),
         // ),
-        TabBar(
-          isScrollable: true,
-          tabAlignment: TabAlignment.start,
-          indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(color: ColorConfig.mainColor, width: 3),
+        PreferredSize(
+          preferredSize: Size.fromHeight(100),
+          child: TabBar(
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(color: ColorConfig.mainColor, width: 3),
+            ),
+            indicatorPadding: const EdgeInsets.only(bottom: 0),
+            unselectedLabelColor: ColorConfig.textColor999,
+            labelColor: ColorConfig.mainColor,
+            tabs: homeViewModel.state.tabProductListModel!.list.map((item) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
+                child: Column(
+                  children: [
+                    Text(
+                      item.category_title,
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                    Text(
+                      item.category_sub_title,
+                      style: TextStyle(fontSize: 10.sp),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+            controller: _tabController,
           ),
-          indicatorPadding: const EdgeInsets.only(bottom: 0),
-          unselectedLabelColor: ColorConfig.textColor999,
-          labelColor: ColorConfig.mainColor,
-          tabs: homeViewModel.state.tabProductListModel!.list.map((item) {
-            return Padding(
-              padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
-              child: Column(
-                children: [
-                  Text(
-                    item.category_title,
-                    style: TextStyle(fontSize: 12.sp),
-                  ),
-                  Text(
-                    item.category_sub_title,
-                    style: TextStyle(fontSize: 10.sp),
-                  ),
-                ],
-              ),
-            );
-          }).toList(),
-          controller: _tabController,
-        )
+        ),
       ],
     );
   }
